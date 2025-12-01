@@ -124,7 +124,7 @@ def load_ai_model(model_path="fish_classifier.h5"):
         return None
     
     try:
-        model = load_model(model_path)
+        model = load_model(model_path, compile=False)
         print(f"模型 '{model_path}' 載入成功！")
         return model
     except Exception as e:
