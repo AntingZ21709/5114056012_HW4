@@ -72,6 +72,14 @@ streamlit run app.py
 ```
 瀏覽器將會自動開啟，並帶您前往互動魚缸的頁面。
 
+### 疑難排解：模型載入失敗
+
+如果在執行時遇到關於 `fish_classifier.h5` 的錯誤，或模型載入失敗，您可以執行以下指令來重新訓練並產生新的模型檔案：
+```bash
+python model.py
+```
+完成後，請再次嘗試執行 `streamlit run app.py`。
+
 ## 如何部署至 Streamlit Cloud
 
 1.  **將專案上傳至 GitHub**
