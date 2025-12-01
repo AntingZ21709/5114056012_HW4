@@ -163,7 +163,7 @@ with col1:
                     st.warning("無法從畫布中提取有效的圖案，請再畫一次。")
             
             # Rerun để立即更新介面顯示結果
-            st.rerun()
+            st.experimental_rerun()
         else:
             st.warning("您還沒有畫任何東西喔！")
 
