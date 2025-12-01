@@ -100,7 +100,7 @@ col1, col2 = st.columns([1, 1])
 with col1:
     st.header("步驟 1: 揮灑創意畫隻魚")
 
-    with st.container(border=True):
+    with st.container():
         st.write("**繪圖工具**")
         tool_col1, tool_col2 = st.columns([1, 1])
         
