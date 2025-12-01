@@ -1,6 +1,8 @@
-# 互動式繪圖辨識與動畫專案
+# 互動式 AI 魚缸：畫魚成真！
 
-這是一個結合深度學習、電腦視覺與互動式網頁應用的專案。使用者可以在網頁上繪製塗鴉，後端的人工智慧模型會即時辨識繪製的內容。如果辨識結果為「魚」，系統就會將使用者繪製的圖案動態地加入一個虛擬魚缸動畫中。
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://5114056012hw4.streamlit.app/)
+
+這是一個結合深度學習、電腦視覺與互動式網頁應用的專案。使用者可以在網頁上自由繪製塗鴉，後端的人工智慧模型會即時辨識。如果辨識結果為「魚」，系統便會將使用者親手畫的圖案轉化為一條活生生的魚，動態地加入虛擬魚缸動畫中，與其他魚群一同悠游。
 
 ## 專案架構
 
@@ -18,55 +20,71 @@ graph TD
     H --> G;
 ```
 
-## 安裝方式
+## 安裝與執行
 
-1.  **複製專案**
-    ```bash
-    git clone <your-repository-url>
-    cd <repository-name>
-    ```
+請依照以下步驟在您的本機環境安裝並執行此專案。
 
-2.  **建立虛擬環境 (建議)**
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # Windows: venv\Scripts\activate
-    ```
+### 1. 前置需求：安裝 Git LFS
 
-3.  **安裝相依套件**
-    本專案所需的套件已列於 `requirements.txt`。請執行以下指令進行安裝：
-    ```bash
-    pip install -r requirements.txt
-    ```
+本專案使用 Git LFS (Large File Storage) 來管理大型檔案（例如 `.h5` 模型檔）。請務必先從官方網站下載並安裝 Git LFS：
+[https://git-lfs.github.com](https://git-lfs.github.com)
 
-4.  **下載資料與訓練模型**
-    在首次執行應用程式前，您需要先執行以下指令來下載 Quick, Draw! 的資料集並訓練模型：
-    ```bash
-    python utils.py
-    python model.py
-    ```
-    這將會產生 `fish_classifier.h5` 模型檔案。
+安裝後，執行一次以下指令來初始化 Git LFS：
+```bash
+git lfs install
+```
 
-## 如何執行
+### 2. 複製並進入專案
 
-確認所有套件都已安裝後，在專案根目錄下執行以下指令即可啟動應用程式：
+```bash
+git clone <your-repository-url>
+cd 5114056012_HW4
+```
 
+### 3. 下載大型檔案
+
+進入專案目錄後，執行以下指令來下載由 Git LFS 管理的模型檔案：
+```bash
+git lfs pull
+```
+成功後，您應該會看到 `fish_classifier.h5` 等檔案出現在目錄中。
+
+### 4. 安裝相依套件
+
+建議先建立虛擬環境，再安裝 `requirements.txt` 中列出的所有套件。
+```bash
+# 建立虛擬環境 (建議)
+python -m venv venv
+# 啟用虛擬環境 (Windows)
+venv\Scripts\activate
+# (macOS/Linux)
+# source venv/bin/activate
+
+# 安裝套件
+pip install -r requirements.txt
+```
+
+### 5. 執行應用程式
+
+確認所有步驟完成後，執行以下指令即可啟動 Streamlit 應用程式：
 ```bash
 streamlit run app.py
 ```
-接著瀏覽器將會自動開啟並導向至應用程式頁面。
+瀏覽器將會自動開啟，並帶您前往互動魚缸的頁面。
 
 ## 如何部署至 Streamlit Cloud
 
 1.  **將專案上傳至 GitHub**
-    請確認您的 GitHub 儲存庫包含以下檔案：
+    請確認您的 GitHub 儲存庫已啟用 Git LFS，並包含以下檔案：
     - `app.py`
-    - `fish_classifier.h5`
-    - `cat.npy`
-    - `fish.npy`
+    - `fish_classifier.h5` (應由 LFS 管理)
+    - `cat.npy` (應由 LFS 管理)
+    - `fish.npy` (應由 LFS 管理)
     - `fish_animation.py`
     - `model.py`
-    - `utils.py`
+    - `app_utils.py` (原 `utils.py`)
     - `requirements.txt`
+    - `.gitattributes` (LFS 設定檔)
 
 2.  **登入 Streamlit Cloud**
     使用您的 GitHub 帳號登入 [Streamlit Cloud](https://share.streamlit.io/)。
@@ -77,7 +95,7 @@ streamlit run app.py
     - 確認 `Main file path` 指向 `app.py`。
     - 點擊 "Deploy!" 按鈕。
 
-    Streamlit Cloud 會自動根據 `requirements.txt` 安裝相依套件並部署您的應用程式。
+    Streamlit Cloud 會自動處理 `requirements.txt` 並部署您的應用程式。
 
 ## 成果截圖
 

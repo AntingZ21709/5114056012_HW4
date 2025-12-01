@@ -7,7 +7,7 @@ from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropou
 from sklearn.model_selection import train_test_split
 
 # 匯入我們自己的 utils 函式
-from utils import load_quickdraw_images
+from app_utils import load_quickdraw_images
 
 # --- 1. 模型架構定義 ---
 def create_cnn_model(input_shape=(28, 28, 1)):

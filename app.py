@@ -11,7 +11,7 @@ import streamlit.components.v1 as components
 
 # 匯入自訂模組
 from model import load_ai_model, predict_image
-from utils import preprocess_image
+from app_utils import preprocess_image
 from fish_animation import FishTank
 
 # --- 1. 頁面設定與資源載入 ---
