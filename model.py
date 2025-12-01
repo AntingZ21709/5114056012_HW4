@@ -124,8 +124,11 @@ def load_ai_model(model_path="fish_classifier.h5"):
         return None
     
     try:
-        model = load_model(model_path, compile=False)
-        print(f"模型 '{model_path}' 載入成功！")
+        # 建立模型架構
+        model = create_cnn_model()
+        # 只載入權重
+        model.load_weights(model_path)
+        print(f"模型權重從 '{model_path}' 載入成功！")
         return model
     except Exception as e:
         print(f"模型載入失敗: {e}")
