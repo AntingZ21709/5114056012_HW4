@@ -1,0 +1,5 @@
+This project focuses on the development of an interactive application that integrates machine learning with computer graphics. We utilized Google's QuickDraw dataset, with a specific focus on the "fish" category, to train a Convolutional Neural Network (CNN) model. The core function of this model is to recognize doodles provided by the user through a sketch input interface.
+
+The application provides a simple drawing canvas for users to create on. Once a drawing is completed, the system sends the sketch to the backend CNN model for real-time analysis. If the model classifies the drawing as a "fish," it triggers a dynamic fish tank animation. This animation seamlessly adds the user's newly drawn fish into the virtual aquarium, where it swims alongside others.
+
+This project not only demonstrates the potential of deep learning for real-time image recognition but also delivers a complete creative and interactive experience. By transforming user creations into dynamic visual feedback through the fish tank animation, it successfully bridges user creativity with an engaging application.
