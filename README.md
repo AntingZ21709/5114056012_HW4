@@ -38,6 +38,14 @@ graph TD
     pip install -r requirements.txt
     ```
 
+4.  **下載資料與訓練模型**
+    在首次執行應用程式前，您需要先執行以下指令來下載 Quick, Draw! 的資料集並訓練模型：
+    ```bash
+    python utils.py
+    python model.py
+    ```
+    這將會產生 `fish_classifier.h5` 模型檔案。
+
 ## 如何執行
 
 確認所有套件都已安裝後，在專案根目錄下執行以下指令即可啟動應用程式：
